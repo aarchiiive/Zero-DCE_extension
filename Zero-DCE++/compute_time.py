@@ -4,10 +4,18 @@ import model
 # 모델 로드 및 weights 적용
 scale_factor = 12
 DCE_net = model.enhance_net_nopool(scale_factor).cuda()
-DCE_net.load_state_dict(torch.load('Exdark/Epoch1.pth'))
+# DCE_net.load_state_dict(torch.load('Exdark/Epoch1.pth'))
 
 # 입력 크기 정의 (예: 720x1080 이미지, 배치 크기 1, 채널 3)
-input_size = (720, 1080)
+# input_size = (720, 1080)
+input_size = (832, 658) # Exdark
+# input_size = (900, 1600) # nuImages
+
+nearest_width = (input_size[0] // 12) * 12
+nearest_height = (input_size[1] // 12) * 12
+
+input_size = (nearest_width, nearest_height)
+
 dummy_input = torch.randn(1, 3, *input_size).cuda()
 
 # GPU warm-up: 초기 오버헤드를 줄이기 위해 몇 번 실행
