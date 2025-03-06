@@ -1,0 +1,13 @@
+*.png
+*.jpg
+*.JPG
+*.JPEG
+*.JPEG
+*.jpeg
+
+Exdark_ZeroDCE++/
+DarkFace_ZeroDCE++/
+*.mp4
+*.zip
+*.pyc
+*.pth
